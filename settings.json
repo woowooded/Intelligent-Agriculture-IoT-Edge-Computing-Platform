@@ -1,9 +1,0 @@
-{
-  "plantuml.diagramsRoot": "docs/diagrams",
-  "plantuml.exportOutDir": "docs/diagrams/export",
-  "plantuml.exportFormat": "png",
-  "plantuml.exportSubFolder": false,
-  "files.associations": {
-    "*.puml": "plantuml"
-  }
-}
