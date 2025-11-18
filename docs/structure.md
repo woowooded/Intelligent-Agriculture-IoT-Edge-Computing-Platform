@@ -1,6 +1,8 @@
-🗂️ 智慧教室物联网系统 - 项目结构
-后端项目结构 (Spring Boot)
-text
+# 🗂️ 智慧教室物联网系统 - 项目结构
+
+## 后端项目结构（Spring Boot）
+
+```text
 smart-classroom-backend/
 ├── src/
 │   ├── main/
@@ -104,13 +106,16 @@ smart-classroom-backend/
 ├── pom.xml
 └── README.md
 前端项目结构 (Vue 3 + TypeScript)
-text
+├── Dockerfile
+├── docker-compose.yml
+├── pom.xml
+└── README.md
+```
+
+## 前端项目结构（Vue 3 + TypeScript）
+
+```text
 smart-classroom-frontend/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── assets/
 │   │   ├── styles/
 │   │   │   ├── global.css
 │   │   │   └── variables.less
@@ -198,23 +203,29 @@ smart-classroom-frontend/
 ├── vite.config.ts
 ├── tsconfig.json
 ├── .env
-├── .env.development
-└── .env.production
-数据库表结构设计
-sql
+├── .env.production
+```
+
+## 数据库表结构设计
+
+```sql
 -- 主要数据表
-devices                 -- 设备表
-sensors                 -- 传感器表  
-sensor_data            -- 传感器数据表
-alert_rules            -- 告警规则表
-alert_logs             -- 告警日志表
-automation_rules       -- 自动化规则表
-control_logs           -- 控制日志表
-users                  -- 用户表
-classrooms             -- 教室表
-system_logs            -- 系统日志表
-部署结构
-text
+devices           -- 设备表
+sensors           -- 传感器表
+sensor_data       -- 传感器数据表
+alert_rules       -- 告警规则表
+alert_logs        -- 告警日志表
+automation_rules  -- 自动化规则表
+control_logs      -- 控制日志表
+users             -- 用户表
+classrooms        -- 教室表
+system_logs       -- 系统日志表
+```
+
+## 部署结构
+
+```text
+deploy/
 deploy/
 ├── docker/
 │   ├── backend/
@@ -229,6 +240,39 @@ deploy/
 └── scripts/
     ├── deploy.sh
     ├── backup.sh
+```
+
+## 关键配置文件说明
+
+### 后端 `application.yml`
+
+```yaml
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_classroom
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  redis:
+    host: localhost
+    port: 6379
+```
+
+### 前端 `package.json` 关键依赖
+
+```json
+{
+  "dependencies": {
+    "vue": "^3.3.0",
+    "element-plus": "^2.3.0",
+    "echarts": "^5.4.0",
+    "axios": "^1.4.0",
+    "pinia": "^2.1.0"
+  }
+}
+```
+
     └── monitor.sh
 关键配置文件说明
 后端 application.yml:
